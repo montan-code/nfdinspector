@@ -252,15 +252,17 @@ class MetadataInspector:
         element.text = text
         return element
 
-    def to_json(self, file_path: str) -> None:
+    def to_json(self, file_path: str, indent: int | str | None = None) -> None:
         """
         Generate a JSON file of the inspections.
 
         :param file_path: File path for the JSON file
         :type file_path: str
+        :param indent: Indent level of the JSON file
+        :type indent: int | str | None
         """
-        with open(file_path, "w") as outfile:
-            json.dump(self.inspections, outfile, indent=4)
+        with open(file_path, "w", encoding="utf-8") as outfile:
+            json.dump(self.inspections, outfile, indent=indent, ensure_ascii=False)
 
     def to_csv(self, file_path: str, delimiter: str = ",") -> None:
         """
