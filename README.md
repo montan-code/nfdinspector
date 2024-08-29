@@ -1,7 +1,7 @@
 # NFDInspector
 
 
-A Python module to inspect formal quality problems in research data, funded by the "4Memory Incubator Funds" of the consortium NFDI4Memory.
+A Python package to inspect formal quality problems in research data (currently compatible metadata standards: LIDO and EAD). Funded by the "4Memory Incubator Funds" of the consortium NFDI4Memory and maintained by the Montanhistorisches Dokumentationszentrum (montan.dok) of the Deutsches Bergbau-Museum Bochumcomplian.
 
 ## Installation
 
@@ -17,34 +17,34 @@ To install with pip on Windows, run:
 
 ### LIDO inspection
 
-Initialize a LIDOInspector and specify a language (currently available: "en" or "de"):
+Initialize a LIDOInspector. You can specify a language (currently available: "en" or "de") for the error messages:
 
     lido_inspector = LIDOInspector(lang="de")
 
 Read LIDO files you want to inspect:
 
-    lido_inspector.read_lido_files("file_path")
+    lido_inspector.read_lido_files("files_path")
 
-Read a configuration file:
+Read a configuration file (optional). Without this step the inspections are executed with a default configuration:
 
     lido_inspector.config_file("file_path")
 
-Execute the inspection:
+Execute the inspections:
 
     lido_inspector.inspect()
 
-Save the inspection as a JSON file:
+Save the inspections as a JSON file:
 
     lido_inspector.to_json("file_path")
 
-Save the inspection as a CSV file:
+Save the inspections as a CSV file. You can specify a field separator/delimiter (default: ","):
 
     lido_inspector.to_csv("file_path", delimiter=";")
 
 
 ### EAD inspection
 
-Initialize an EADInspector and specify a language (currently available: "en" or "de"):
+Initialize an EADInspector. You can specify a language (currently available: "en" or "de") for the error messages:
 
     ead_inspector = LIDOInspector(lang="en")
 
@@ -52,7 +52,7 @@ Read EAD file you want to inspect:
 
     ead_inspector.read_ead_file("file_path")
 
-Read a configuration file:
+Read a configuration file (optional). Without this step the inspections are executed with a default configuration. It is highly recommended to use different configuration files for archive tectonics and finding aids:
 
     ead_inspector.config_file("file_path")
 
@@ -64,7 +64,7 @@ Save the inspection as a JSON file:
     
     ead_inspector.to_json("file_path")
 
-Save the inspection as a CSV file:
+Save the inspections as a CSV file. You can specify a field separator/delimiter (default: ","):
 
     ead_inspector.to_csv("file_path", delimiter=";")   
 

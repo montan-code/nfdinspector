@@ -23,7 +23,7 @@ setup(
     author="Andreas Ketelaer",
     author_email="andreas.ketelaer@bergbaumuseum.de",
     description=(
-        """A Python module to inspect formal quality problems in research data."""
+        """A Python package to inspect formal quality problems in research data."""
     ),
     long_description=long_description,
     long_description_content_type="text/markdown",

@@ -7,7 +7,7 @@ name = "NFDInspector"
 authors = [
     {name = "Andreas Ketelaer", email = "andreas.ketelaer@bergbaumuseum.de"},
 ]
-description = "A Python module to inspect formal quality problems in research data."
+description = "A Python package to inspect formal quality problems in research data."
 readme = "README.md"
 # keywords = ["TODO_KEYWORD_1", "TODO_KEYWORD_2"]
 license = {file = "LICENSE"}
