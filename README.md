@@ -46,7 +46,7 @@ Save the inspections as a CSV file. You can specify a field separator/delimiter 
 
 Initialize an EADInspector. You can specify a language (currently available: "en" or "de") for the error messages:
 
-    ead_inspector = LIDOInspector(lang="en")
+    ead_inspector = EADInspector(lang="en")
 
 Read EAD file you want to inspect:
 
@@ -56,11 +56,11 @@ Read a configuration file (optional). Without this step the inspections are exec
 
     ead_inspector.config_file("file_path")
 
-Execute the inspection:
+Execute the inspections:
 
     ead_inspector.inspect()
 
-Save the inspection as a JSON file:
+Save the inspections as a JSON file:
     
     ead_inspector.to_json("file_path")
 
