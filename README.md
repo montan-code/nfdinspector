@@ -19,7 +19,7 @@ To install with pip on Windows, run:
 
 Initialize a LIDOInspector. You can specify a language (currently available: "en" or "de") for the error messages:
 
-    lido_inspector = LIDOInspector(lang="de")
+    lido_inspector = LIDOInspector(error_lang="de")
 
 Read LIDO files you want to inspect:
 
@@ -46,7 +46,7 @@ Save the inspections as a CSV file. You can specify a field separator/delimiter 
 
 Initialize an EADInspector. You can specify a language (currently available: "en" or "de") for the error messages:
 
-    ead_inspector = EADInspector(lang="en")
+    ead_inspector = EADInspector(error_lang="en")
 
 Read EAD file you want to inspect:
 

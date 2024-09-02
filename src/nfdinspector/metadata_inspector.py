@@ -86,7 +86,7 @@ class MetadataInspector:
         :rtype: list
         """
         return [
-            MetadataInspector.read_xml_file(f"{files_path}\\{file_name}")
+            MetadataInspector.read_xml_file(f"{files_path}/{file_name}")
             for file_name in os.listdir(files_path)
             if file_name.endswith(".xml")
         ]
