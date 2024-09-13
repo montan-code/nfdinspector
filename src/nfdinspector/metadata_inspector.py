@@ -273,7 +273,7 @@ class MetadataInspector:
         :param delimiter: Delimiter for the columns in the CSV file
         :type delimiter: str
         """
-        with open(file_path, "w", newline="") as outfile:
+        with open(file_path, "w", newline="", encoding="utf-8") as outfile:
             writer = csv.DictWriter(
                 outfile, fieldnames=self.inspections[0].keys(), delimiter=delimiter
             )
