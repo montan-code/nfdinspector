@@ -60,9 +60,9 @@ Execute the inspections:
 
     ead_inspector.inspect()
 
-Save the inspections as a JSON file:
+Save the inspections as a JSON file. You can specify the indention (default: None):
     
-    ead_inspector.to_json("file_path")
+    ead_inspector.to_json("file_path", indent=4)
 
 Save the inspections as a CSV file. You can specify a field separator/delimiter (default: ","):
 

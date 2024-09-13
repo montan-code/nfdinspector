@@ -19,7 +19,7 @@ with io.open("README.md", encoding="utf-8") as fileObj:
 setup(
     name="NFDInspector",
     version=version,
-    url="https://github.com/henry-angleman/nfdinspector",
+    url="https://github.com/montan-code/nfdinspector",
     author="Andreas Ketelaer",
     author_email="andreas.ketelaer@bergbaumuseum.de",
     description=(
