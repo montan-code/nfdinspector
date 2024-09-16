@@ -1,7 +1,7 @@
 # NFDInspector
 
 
-A Python package to inspect formal quality problems in research data (currently compatible metadata standards: LIDO and EAD). Funded by the "4Memory Incubator Funds" of the consortium NFDI4Memory and maintained by the Montanhistorisches Dokumentationszentrum (montan.dok) of the Deutsches Bergbau-Museum Bochum.
+A Python package to inspect formal quality problems in research data (currently compatible metadata standards: LIDO and EAD). Funded by the "4Memory Incubator Funds" of the consortium NFDI4Memory, developed and maintained by the Montanhistorisches Dokumentationszentrum (montan.dok) of the Deutsches Bergbau-Museum Bochum.
 
 ## Installation
 
@@ -25,7 +25,7 @@ Read LIDO files you want to inspect:
 
     lido_inspector.read_lido_files("files_path")
 
-Read a configuration file (optional). Without this step the inspections are executed with a default configuration:
+Refer to a configuration file (optional). Without this step the inspections are executed with a default configuration:
 
     lido_inspector.config_file("file_path")
 
@@ -33,9 +33,9 @@ Execute the inspections:
 
     lido_inspector.inspect()
 
-Save the inspections as a JSON file:
+Save the inspections as a JSON file. You can specify the indention (default: None):
 
-    lido_inspector.to_json("file_path")
+    lido_inspector.to_json("file_path", indent=4)
 
 Save the inspections as a CSV file. You can specify a field separator/delimiter (default: ","):
 
@@ -52,7 +52,7 @@ Read EAD file you want to inspect:
 
     ead_inspector.read_ead_file("file_path")
 
-Read a configuration file (optional). Without this step the inspections are executed with a default configuration. It is highly recommended to use different configuration files for archive tectonics and finding aids:
+Refer to a configuration file (optional). Without this step the inspections are executed with a default configuration. It is highly recommended to use different configuration files for archive tectonics and finding aids:
 
     ead_inspector.config_file("file_path")
 
