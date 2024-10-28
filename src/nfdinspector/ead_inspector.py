@@ -6,7 +6,7 @@ from datetime import date
 class EADInspector(MetadataInspector):
     """Class for inspectors that examine records in EAD-XML."""
 
-    def __init__(self, error_lang="en") -> None:
+    def __init__(self, error_lang: str = "en") -> None:
         """
         Construct EADInspector with specific error language.
 

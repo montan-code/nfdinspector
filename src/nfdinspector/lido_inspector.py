@@ -5,7 +5,7 @@ import json
 class LIDOInspector(MetadataInspector):
     """Class for inspectors that examine records in LIDO-XML."""
 
-    def __init__(self, error_lang="en") -> None:
+    def __init__(self, error_lang: str = "en") -> None:
         """
         Construct LIDOInspector with specific error language.
 
