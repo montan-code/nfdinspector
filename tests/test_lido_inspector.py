@@ -35,7 +35,11 @@ class Test_LIDOInspector:
             "min_word_num": 3,
             "max_word_num": 5,
         }
-        assert li.configuration["category"] == {"inspect": True, "ref": True}
+        assert li.configuration["category"] == {
+            "inspect": True,
+            "ref": True,
+            "patterns": {"label": "", "ref": ""},
+        }
         assert li.configuration["subject_concept"] == {
             "inspect": True,
             "ref": True,
@@ -68,6 +72,7 @@ class Test_LIDOInspector:
         assert li.configuration["category"] == {
             "inspect": default_config["category"]["inspect"],
             "ref": False,
+            "patterns": {"label": "", "ref": ""},
         }
         li.configure_setting("classification", {})
         assert li.configuration["classification"] == default_config["classification"]
@@ -258,6 +263,20 @@ class Test_LIDOInspector:
             == li.error.miss_info()
         )
         assert li.inspect_work_id(xml(f"{wrap[0]}{wrap[1]}")) == li.error.miss_info()
+        li.configuration["workID"]["pattern"] = r"^\d{12}$"
+        assert (
+            li.inspect_work_id(xml(f"{wrap[0]}<workID>123456789000</workID>{wrap[1]}"))
+            == "123456789000"
+        )
+        assert li.inspect_work_id(
+            xml(f"{wrap[0]}<workID>123456789</workID>{wrap[1]}")
+        ) == li.error.pattern("123456789")
+        assert li.inspect_work_id(
+            xml(f"{wrap[0]}<workID>123456789000000</workID>{wrap[1]}")
+        ) == li.error.pattern("123456789000000")
+        assert li.inspect_work_id(
+            xml(f"{wrap[0]}<workID>12A456789000</workID>{wrap[1]}")
+        ) == li.error.pattern("12A456789000")
 
     def test_is_distinct_from_type(self):
         li = LIDOInspector()
@@ -967,7 +986,11 @@ class Test_LIDOInspector:
 
     def test_inspect_category(self):
         li = LIDOInspector()
-        li.configuration["category"] = {"inspect": True, "ref": True}
+        li.configuration["category"] = {
+            "inspect": True,
+            "ref": True,
+            "patterns": {"label": "", "ref": ""},
+        }
         wrap = [
             "<lido xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'>",
             "</lido>",
@@ -1028,6 +1051,55 @@ class Test_LIDOInspector:
             li.inspect_category(
                 xml(
                     f"{wrap[0]}<category><Concept rdf:about=''><prefLabel>test</prefLabel></Concept></category>{wrap[1]}"
+                )
+            )
+        )
+        li.configuration["category"]["patterns"] = {"label": "test", "ref": "1"}
+        assert (
+            li.inspect_category(
+                xml(
+                    f"{wrap[0]}<category><conceptID>1</conceptID><term>test</term></category>{wrap[1]}"
+                )
+            )
+            == None
+        )
+        assert li.error.pattern("2") in (
+            li.inspect_category(
+                xml(
+                    f"{wrap[0]}<category><conceptID>2</conceptID><term>test</term></category>{wrap[1]}"
+                )
+            )
+        )
+        assert li.error.pattern("tst") in (
+            li.inspect_category(
+                xml(
+                    f"{wrap[0]}<category><conceptID>2</conceptID><term>tst</term></category>{wrap[1]}"
+                )
+            )
+        )
+        li.configuration["category"]["patterns"] = {
+            "label": rf"^[a-zA-ZäöüÄÖÜß0-9'-]+$",
+            "ref": rf"^https:\/\/.+$",
+        }
+        assert (
+            li.inspect_category(
+                xml(
+                    f"{wrap[0]}<category><conceptID>https://www.test.com/</conceptID><term>test</term></category>{wrap[1]}"
+                )
+            )
+            == None
+        )
+        assert li.error.pattern("2") in (
+            li.inspect_category(
+                xml(
+                    f"{wrap[0]}<category><conceptID>2</conceptID><term>test</term></category>{wrap[1]}"
+                )
+            )
+        )
+        assert li.error.pattern("test test") in (
+            li.inspect_category(
+                xml(
+                    f"{wrap[0]}<category><conceptID>2</conceptID><term>test test</term></category>{wrap[1]}"
                 )
             )
         )

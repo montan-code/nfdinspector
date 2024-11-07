@@ -111,6 +111,72 @@ class Test_MetadataInspector:
         assert mi.error.miss_label("") in mi.inspect_entity("", "", {"ref": True})
         assert mi.error.miss_label("") in mi.inspect_entity("", "", {"ref": False})
         assert mi.inspect_entity("test", "", {"ref": False}) == []
+        assert (
+            mi.inspect_entity(
+                "test",
+                "test_id",
+                {"ref": True, "patterns": {"label": "", "ref": ""}},
+            )
+            == []
+        )
+        assert (
+            mi.inspect_entity(
+                "test",
+                "test_id",
+                {"ref": True, "patterns": {"label": "test", "ref": "test_id"}},
+            )
+            == []
+        )
+        assert (
+            mi.inspect_entity(
+                "Änderung",
+                "test_id",
+                {
+                    "ref": True,
+                    "patterns": {"label": rf"^[a-zA-ZäöüÄÖÜß0-9'-]+$", "ref": ""},
+                },
+            )
+            == []
+        )
+        assert (
+            mi.inspect_entity(
+                "test",
+                "https://www.test.de/",
+                {"ref": True, "patterns": {"label": "", "ref": rf"^https:\/\/.+$"}},
+            )
+            == []
+        )
+        assert mi.error.pattern("tst") in (
+            mi.inspect_entity(
+                "tst",
+                "test_id",
+                {"ref": True, "patterns": {"label": "test", "ref": "test_id"}},
+            )
+        )
+        assert mi.error.pattern("test_ident") in (
+            mi.inspect_entity(
+                "tst",
+                "test_ident",
+                {"ref": True, "patterns": {"label": "test", "ref": "test_id"}},
+            )
+        )
+        assert mi.error.pattern("test test") in (
+            mi.inspect_entity(
+                "test test",
+                "test_id",
+                {
+                    "ref": True,
+                    "patterns": {"label": rf"^[a-zA-ZäöüÄÖÜß0-9'-]+$", "ref": ""},
+                },
+            )
+        )
+        assert mi.error.pattern("www.test.de/") in (
+            mi.inspect_entity(
+                "test",
+                "www.test.de/",
+                {"ref": True, "patterns": {"label": "", "ref": rf"^https:\/\/.+$"}},
+            )
+        )
 
     def test_date_object(self):
         mi = MetadataInspector()

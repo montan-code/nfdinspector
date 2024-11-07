@@ -1,6 +1,7 @@
 import os
 import json
 import csv
+import re
 from datetime import date
 from lxml import etree
 from .error import Error
@@ -202,10 +203,18 @@ class MetadataInspector:
         messages: list = []
         if not label:
             messages.append(self.error.miss_label(entity_id))
-        if not config["ref"]:
-            return messages
-        if not entity_id:
+        if config["ref"] and not entity_id:
             messages.append(self.error.miss_ref(label))
+        if "patterns" not in config:
+            return messages
+        if config["patterns"]["label"] and not re.fullmatch(
+            rf"{config['patterns']['label']}", label
+        ):
+            messages.append(self.error.pattern(label))
+        if config["patterns"]["ref"] and not re.fullmatch(
+            rf"{config['patterns']['ref']}", entity_id
+        ):
+            messages.append(self.error.pattern(entity_id))
         return messages
 
     def date_object(self, date_str: str):

@@ -1,5 +1,6 @@
 from .metadata_inspector import MetadataInspector
 import json
+import re
 
 
 class LIDOInspector(MetadataInspector):
@@ -16,6 +17,7 @@ class LIDOInspector(MetadataInspector):
         self._lido_namespace: str = "http://www.lido-schema.org"
         self._lido_objects: list = []
         self._configuration: dict = {
+            "workID": {"pattern": ""},
             "title": {
                 "inspect": True,
                 "unique": True,
@@ -23,7 +25,11 @@ class LIDOInspector(MetadataInspector):
                 "min_word_num": 2,
                 "max_word_num": 20,
             },
-            "category": {"inspect": True, "ref": True},
+            "category": {
+                "inspect": True,
+                "ref": True,
+                "patterns": {"label": "", "ref": ""},
+            },
             "object_work_type": {"inspect": True, "ref": True},
             "classification": {"inspect": True, "ref": True},
             "object_description": {
@@ -158,6 +164,10 @@ class LIDOInspector(MetadataInspector):
                 self.configuration[setting][key] = bool(value)
             elif key in ["min_word_num", "max_word_num", "min_num"]:
                 self.configuration[setting][key] = int(value)
+            elif key in ["pattern"]:
+                self.configuration[setting][key] = str(value)
+            elif key in ["patterns"]:
+                self.configuration[setting][key] = dict(value)
 
     def config_file(self, file_path: str) -> None:
         """
@@ -265,7 +275,13 @@ class LIDOInspector(MetadataInspector):
         work_id = lido_object.find(
             "{*}descriptiveMetadata/{*}objectIdentificationWrap/{*}repositoryWrap/{*}repositorySet/{*}workID"
         )
-        return work_id.text if self.text(work_id) else self.error.miss_info()
+        if not self.text(work_id):
+            return self.error.miss_info()
+        if self.configuration["workID"]["pattern"] and not re.fullmatch(
+            rf"{self.configuration['workID']['pattern']}", work_id.text
+        ):
+            return self.error.pattern(work_id.text)
+        return work_id.text
 
     def is_distinct_from_type(self, lido_object, value: str) -> bool:
         """

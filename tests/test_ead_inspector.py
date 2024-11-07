@@ -140,6 +140,21 @@ class Test_EADInspector:
             == ei.error.miss_info()
         )
         assert ei.inspect_unitid(xml("<c><did></did></c>")) == ei.error.miss_info()
+        ei.configuration["unitid"]["pattern"] = r"^BBB \d{1,5}$"
+        assert (
+            ei.inspect_unitid(xml("<c><did><unitid>BBB 1</unitid></did></c>"))
+            == "BBB 1"
+        )
+        assert (
+            ei.inspect_unitid(xml("<c><did><unitid>BBB 12345</unitid></did></c>"))
+            == "BBB 12345"
+        )
+        assert ei.inspect_unitid(
+            xml("<c><did><unitid>BBB Z</unitid></did></c>")
+        ) == ei.error.pattern("BBB Z")
+        assert ei.inspect_unitid(
+            xml("<c><did><unitid>BBB 123456</unitid></did></c>")
+        ) == ei.error.pattern("BBB 123456")
 
     def test_inspect_text(self):
         ei = EADInspector()

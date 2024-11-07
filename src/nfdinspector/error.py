@@ -488,6 +488,23 @@ class Error:
             case _:
                 return f"missing resource type ({add})"
 
+    def pattern(self, add: str) -> str:
+        """
+        Get error message for wrong pattern.
+
+        :param add: Additional information
+        :type add: str
+        :return: Error message
+        :rtype: str
+        """
+        match self.language:
+            case "en":
+                return f"pattern does not correspond to the specification ({add})"
+            case "de":
+                return f"Muster entspricht nicht der Vorgabe ({add})"
+            case _:
+                return f"pattern does not correspond to the specification ({add})"
+
     def dupl_blanks(self) -> str:
         """
         Get error message for duplicate blanks.

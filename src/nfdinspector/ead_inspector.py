@@ -1,5 +1,6 @@
 from .metadata_inspector import MetadataInspector
 import json
+import re
 from datetime import date
 
 
@@ -18,6 +19,7 @@ class EADInspector(MetadataInspector):
         self._cs: list = []
         self._rights_ead: list = []
         self.configuration: dict = {
+            "unitid": {"pattern": ""},
             "unittitle": {
                 "collection": {"inspect": True, "min_word_num": 2},
                 "class": {"inspect": True, "min_word_num": 1},
@@ -304,7 +306,13 @@ class EADInspector(MetadataInspector):
         :rtype: str
         """
         unitid = c.find("{*}did/{*}unitid")
-        return unitid.text if self.text(unitid) else self.error.miss_info()
+        if not self.text(unitid):
+            return self.error.miss_info()
+        if self.configuration["unitid"]["pattern"] and not re.fullmatch(
+            rf"{self.configuration['unitid']['pattern']}", unitid.text
+        ):
+            return self.error.pattern(unitid.text)
+        return unitid.text
 
     def inspect_text(self, element, config: dict) -> list | None:
         """
