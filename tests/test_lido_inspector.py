@@ -881,6 +881,52 @@ class Test_LIDOInspector:
                 {"ref": True},
             )
         )
+        assert (
+            li.inspect_concept(
+                xml("<elem><conceptID>1</conceptID><term>test</term></elem>"),
+                {"ref": True, "patterns": {"label": "test", "ref": "1"}},
+            )
+        ) == []
+        assert (
+            li.inspect_concept(
+                xml(
+                    "<elem><conceptID>https://www.test.de/</conceptID><term>test</term></elem>"
+                ),
+                {
+                    "ref": True,
+                    "patterns": {
+                        "label": rf"^[a-zA-ZäöüÄÖÜß0-9'-]+$",
+                        "ref": rf"^https:\/\/.+$",
+                    },
+                },
+            )
+        ) == []
+        assert li.error.pattern("tst") in (
+            li.inspect_concept(
+                xml("<elem><conceptID>1</conceptID><term>tst</term></elem>"),
+                {"ref": True, "patterns": {"label": "test", "ref": "1"}},
+            )
+        )
+        assert li.error.pattern("2") in (
+            li.inspect_concept(
+                xml("<elem><conceptID>2</conceptID><term>tst</term></elem>"),
+                {"ref": True, "patterns": {"label": "test", "ref": "1"}},
+            )
+        )
+        assert li.error.pattern("1") in (
+            li.inspect_concept(
+                xml(
+                    "<elem><Concept xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' rdf:about='1'><prefLabel>test</prefLabel></Concept></elem>"
+                ),
+                {
+                    "ref": True,
+                    "patterns": {
+                        "label": rf"^[a-zA-ZäöüÄÖÜß0-9'-]+$",
+                        "ref": rf"^https:\/\/.+$",
+                    },
+                },
+            )
+        )
 
     def test_inspect_concepts(self):
         li = LIDOInspector()
@@ -981,6 +1027,60 @@ class Test_LIDOInspector:
             li.inspect_concepts(
                 [xml("<elem><term>test</term></elem>")],
                 {"ref": True, "min_num": 2},
+            )
+        )
+        assert (
+            li.inspect_concepts(
+                [
+                    xml("<elem><conceptID>1</conceptID><term>test</term></elem>"),
+                    xml("<elem><conceptID>2</conceptID><term>test</term></elem>"),
+                ],
+                {
+                    "ref": True,
+                    "min_num": 2,
+                    "patterns": {"label": "test", "ref": rf"^[12]$"},
+                },
+            )
+            == None
+        )
+        assert (
+            li.inspect_concepts(
+                [
+                    xml("<elem><conceptID>1</conceptID><term>test</term></elem>"),
+                    xml("<elem><conceptID>2</conceptID><term>alt</term></elem>"),
+                ],
+                {
+                    "ref": True,
+                    "min_num": 2,
+                    "patterns": {"label": "^(test|alt)$", "ref": ""},
+                },
+            )
+            == None
+        )
+        assert li.error.pattern("3") in (
+            li.inspect_concepts(
+                [
+                    xml("<elem><conceptID>1</conceptID><term>test</term></elem>"),
+                    xml("<elem><conceptID>3</conceptID><term>test</term></elem>"),
+                ],
+                {
+                    "ref": True,
+                    "min_num": 2,
+                    "patterns": {"label": "test", "ref": rf"^[12]$"},
+                },
+            )
+        )
+        assert li.error.pattern("test test") in (
+            li.inspect_concepts(
+                [
+                    xml("<elem><conceptID>1</conceptID><term>test</term></elem>"),
+                    xml("<elem><conceptID>2</conceptID><term>test test</term></elem>"),
+                ],
+                {
+                    "ref": True,
+                    "min_num": 2,
+                    "patterns": {"label": "^(test|alt)$", "ref": rf"^[12]$"},
+                },
             )
         )
 
@@ -1180,6 +1280,55 @@ class Test_LIDOInspector:
                 )
             )
         )
+        li.configuration["object_work_type"]["patterns"] = {"label": "test", "ref": "1"}
+        assert (
+            li.inspect_object_work_types(
+                xml(
+                    f"{wrap[0]}<objectWorkType><conceptID>1</conceptID><term>test</term></objectWorkType>{wrap[1]}"
+                )
+            )
+            == None
+        )
+        assert li.error.pattern("2") in (
+            li.inspect_object_work_types(
+                xml(
+                    f"{wrap[0]}<objectWorkType><conceptID>2</conceptID><term>test</term></objectWorkType>{wrap[1]}"
+                )
+            )
+        )
+        assert li.error.pattern("tst") in (
+            li.inspect_object_work_types(
+                xml(
+                    f"{wrap[0]}<objectWorkType><conceptID>2</conceptID><term>tst</term></objectWorkType>{wrap[1]}"
+                )
+            )
+        )
+        li.configuration["object_work_type"]["patterns"] = {
+            "label": rf"^[a-zA-ZäöüÄÖÜß0-9'-]+$",
+            "ref": rf"^https:\/\/.+$",
+        }
+        assert (
+            li.inspect_object_work_types(
+                xml(
+                    f"{wrap[0]}<objectWorkType><conceptID>https://www.test.com/</conceptID><term>test</term></objectWorkType>{wrap[1]}"
+                )
+            )
+            == None
+        )
+        assert li.error.pattern("2") in (
+            li.inspect_object_work_types(
+                xml(
+                    f"{wrap[0]}<objectWorkType><conceptID>2</conceptID><term>test</term></objectWorkType>{wrap[1]}"
+                )
+            )
+        )
+        assert li.error.pattern("test test") in (
+            li.inspect_object_work_types(
+                xml(
+                    f"{wrap[0]}<objectWorkType><conceptID>2</conceptID><term>test test</term></objectWorkType>{wrap[1]}"
+                )
+            )
+        )
 
     def test_inspect_classifications(self):
         li = LIDOInspector()
@@ -1254,6 +1403,55 @@ class Test_LIDOInspector:
             li.inspect_classifications(
                 xml(
                     f"{wrap[0]}<classification><Concept rdf:about=''><prefLabel>test</prefLabel></Concept></classification>{wrap[1]}"
+                )
+            )
+        )
+        li.configuration["classification"]["patterns"] = {"label": "test", "ref": "1"}
+        assert (
+            li.inspect_classifications(
+                xml(
+                    f"{wrap[0]}<classification><conceptID>1</conceptID><term>test</term></classification>{wrap[1]}"
+                )
+            )
+            == None
+        )
+        assert li.error.pattern("2") in (
+            li.inspect_classifications(
+                xml(
+                    f"{wrap[0]}<classification><conceptID>2</conceptID><term>test</term></classification>{wrap[1]}"
+                )
+            )
+        )
+        assert li.error.pattern("tst") in (
+            li.inspect_classifications(
+                xml(
+                    f"{wrap[0]}<classification><conceptID>2</conceptID><term>tst</term></classification>{wrap[1]}"
+                )
+            )
+        )
+        li.configuration["classification"]["patterns"] = {
+            "label": rf"^[a-zA-ZäöüÄÖÜß0-9'-]+$",
+            "ref": rf"^https:\/\/.+$",
+        }
+        assert (
+            li.inspect_classifications(
+                xml(
+                    f"{wrap[0]}<classification><conceptID>https://www.test.com/</conceptID><term>test</term></classification>{wrap[1]}"
+                )
+            )
+            == None
+        )
+        assert li.error.pattern("2") in (
+            li.inspect_classifications(
+                xml(
+                    f"{wrap[0]}<classification><conceptID>2</conceptID><term>test</term></classification>{wrap[1]}"
+                )
+            )
+        )
+        assert li.error.pattern("test test") in (
+            li.inspect_classifications(
+                xml(
+                    f"{wrap[0]}<classification><conceptID>2</conceptID><term>test test</term></classification>{wrap[1]}"
                 )
             )
         )
@@ -2990,6 +3188,55 @@ class Test_LIDOInspector:
                 )
             )
         )
+        li.configuration["record_type"]["patterns"] = {"label": "test", "ref": "1"}
+        assert (
+            li.inspect_record_type(
+                xml(
+                    f"{wrap[0]}<recordType><conceptID>1</conceptID><term>test</term></recordType>{wrap[1]}"
+                )
+            )
+            == None
+        )
+        assert li.error.pattern("2") in (
+            li.inspect_record_type(
+                xml(
+                    f"{wrap[0]}<recordType><conceptID>2</conceptID><term>test</term></recordType>{wrap[1]}"
+                )
+            )
+        )
+        assert li.error.pattern("tst") in (
+            li.inspect_record_type(
+                xml(
+                    f"{wrap[0]}<recordType><conceptID>2</conceptID><term>tst</term></recordType>{wrap[1]}"
+                )
+            )
+        )
+        li.configuration["record_type"]["patterns"] = {
+            "label": rf"^[a-zA-ZäöüÄÖÜß0-9'-]+$",
+            "ref": rf"^https:\/\/.+$",
+        }
+        assert (
+            li.inspect_record_type(
+                xml(
+                    f"{wrap[0]}<recordType><conceptID>https://www.test.com/</conceptID><term>test</term></recordType>{wrap[1]}"
+                )
+            )
+            == None
+        )
+        assert li.error.pattern("2") in (
+            li.inspect_record_type(
+                xml(
+                    f"{wrap[0]}<recordType><conceptID>2</conceptID><term>test</term></recordType>{wrap[1]}"
+                )
+            )
+        )
+        assert li.error.pattern("test test") in (
+            li.inspect_record_type(
+                xml(
+                    f"{wrap[0]}<recordType><conceptID>2</conceptID><term>test test</term></recordType>{wrap[1]}"
+                )
+            )
+        )
 
     def test_legal_body_id(self):
         li = LIDOInspector()
@@ -3304,6 +3551,55 @@ class Test_LIDOInspector:
             li.inspect_record_rights(
                 xml(
                     f"{wrap[0]}<rightsType><Concept rdf:about=''><prefLabel>test</prefLabel></Concept></rightsType>{wrap[1]}"
+                )
+            )
+        )
+        li.configuration["record_rights"]["patterns"] = {"label": "test", "ref": "1"}
+        assert (
+            li.inspect_record_rights(
+                xml(
+                    f"{wrap[0]}<rightsType><conceptID>1</conceptID><term>test</term></rightsType>{wrap[1]}"
+                )
+            )
+            == None
+        )
+        assert li.error.pattern("2") in (
+            li.inspect_record_rights(
+                xml(
+                    f"{wrap[0]}<rightsType><conceptID>2</conceptID><term>test</term></rightsType>{wrap[1]}"
+                )
+            )
+        )
+        assert li.error.pattern("tst") in (
+            li.inspect_record_rights(
+                xml(
+                    f"{wrap[0]}<rightsType><conceptID>2</conceptID><term>tst</term></rightsType>{wrap[1]}"
+                )
+            )
+        )
+        li.configuration["record_rights"]["patterns"] = {
+            "label": rf"^[a-zA-ZäöüÄÖÜß0-9'-]+$",
+            "ref": rf"^https:\/\/.+$",
+        }
+        assert (
+            li.inspect_record_rights(
+                xml(
+                    f"{wrap[0]}<rightsType><conceptID>https://www.test.com/</conceptID><term>test</term></rightsType>{wrap[1]}"
+                )
+            )
+            == None
+        )
+        assert li.error.pattern("2") in (
+            li.inspect_record_rights(
+                xml(
+                    f"{wrap[0]}<rightsType><conceptID>2</conceptID><term>test</term></rightsType>{wrap[1]}"
+                )
+            )
+        )
+        assert li.error.pattern("test test") in (
+            li.inspect_record_rights(
+                xml(
+                    f"{wrap[0]}<rightsType><conceptID>2</conceptID><term>test test</term></rightsType>{wrap[1]}"
                 )
             )
         )

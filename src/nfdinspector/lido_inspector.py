@@ -30,8 +30,16 @@ class LIDOInspector(MetadataInspector):
                 "ref": True,
                 "patterns": {"label": "", "ref": ""},
             },
-            "object_work_type": {"inspect": True, "ref": True},
-            "classification": {"inspect": True, "ref": True},
+            "object_work_type": {
+                "inspect": True,
+                "ref": True,
+                "patterns": {"label": "", "ref": ""},
+            },
+            "classification": {
+                "inspect": True,
+                "ref": True,
+                "patterns": {"label": "", "ref": ""},
+            },
             "object_description": {
                 "inspect": True,
                 "unique": True,
@@ -51,10 +59,18 @@ class LIDOInspector(MetadataInspector):
                 "min_num": 3,
             },
             "resource": {"inspect": True},
-            "record_type": {"inspect": True, "ref": True},
+            "record_type": {
+                "inspect": True,
+                "ref": True,
+                "patterns": {"label": "", "ref": ""},
+            },
             "repository_name": {"inspect": True, "ref": True},
             "record_source": {"inspect": True, "ref": True},
-            "record_rights": {"inspect": True, "ref": True},
+            "record_rights": {
+                "inspect": True,
+                "ref": True,
+                "patterns": {"label": "", "ref": ""},
+            },
             "record_info": {"inspect": True},
         }
         self._duplicate_titles: set = set()
