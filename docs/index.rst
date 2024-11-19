@@ -4,12 +4,14 @@
    contain the root `toctree` directive.
 
 Welcome to NFDInspector's documentation!
-=======================================
+========================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+   intro
+   nfdinspector
 
 
 Indices and tables
