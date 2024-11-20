@@ -1,7 +1,14 @@
 # NFDInspector
 
 
-A Python package to inspect formal quality problems in research data (currently compatible metadata standards: LIDO and EAD). Funded by the "4Memory Incubator Funds" of the consortium NFDI4Memory, developed and maintained by the Montanhistorisches Dokumentationszentrum (montan.dok) of the Deutsches Bergbau-Museum Bochum.
+NFDInspector is designed to facilitate the inspection of formal quality issues pertaining to research data. 
+It is currently compatible with the LIDO and EAD metadata standards. 
+The project has been funded by the "4Memory Incubator Funds" of the NFDI4Memory consortium and is being developed and maintained by the Montanhistorisches Dokumentationszentrum (montan.dok) of the Deutsches Bergbau-Museum Bochum.
+
+* [Documentation](https://montan-code.github.io/nfdinspector/)
+* [GitHub](https://github.com/montan-code/nfdinspector)
+* [PyPI](https://pypi.org/project/NFDInspector/)
+* [License](https://pypi.org/project/NFDInspector/)
 
 ## Installation
 
@@ -16,6 +23,10 @@ To install with pip on Windows, run:
 ## Quickstart Guide
 
 ### LIDO inspection
+
+Import LIDOInspector:
+
+    from nfdinspector.lido_inspector import LIDOInspector
 
 Initialize a LIDOInspector. You can specify a language (currently available: "en" or "de") for the error messages:
 
@@ -43,6 +54,10 @@ Save the inspections as a CSV file. You can specify a field separator/delimiter 
 
 
 ### EAD inspection
+
+Import EADInspector:
+
+    from nfdinspector.ead_inspector import EADInspector
 
 Initialize an EADInspector. You can specify a language (currently available: "en" or "de") for the error messages:
 

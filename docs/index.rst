@@ -11,6 +11,8 @@ Welcome to NFDInspector's documentation!
    :caption: Contents:
 
    intro
+   ead_inspector_guide
+   lido_inspector_guide
    nfdinspector
 
 

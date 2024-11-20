@@ -19,5 +19,5 @@ If you get stuck at any point you can create an
 
 The goal is to maintain a diverse community that's pleasant for everyone.
 **Please be considerate and respectful of others**. Everyone must abide by our
-[Code of Conduct](https://github.com/montan-code/nfdinspector/blob/master/code_of_conduct.md)
+[Code of Conduct](https://github.com/montan-code/nfdinspector/blob/main/code_of_conduct.md)
 and we encourage all to read it carefully.

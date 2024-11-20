@@ -1,8 +1,5 @@
-nfdinspector package
+Reference
 ====================
-
-Submodules
-----------
 
 nfdinspector.ead\_inspector module
 ----------------------------------
