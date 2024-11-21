@@ -158,8 +158,8 @@ Example::
 
     ead_inspector = EADInspector()
 
-    # Read multiple EAD files
-    ead_inspector.read_ead_files("files_path")
+    # Read EAD file
+    ead_inspector.read_ead_file("files_path")
     # Read a configuration file
     ead_inspector.config_file("file_path")
     # Perform inspections
@@ -183,8 +183,8 @@ Examples::
 
     ead_inspector = EADInspector()
 
-    # Read multiple EAD files
-    ead_inspector.read_ead_files("files_path")
+    # Read EAD file
+    ead_inspector.read_ead_file("files_path")
     # Read a configuration file
     ead_inspector.config_file("file_path")
     # Perform inspections
