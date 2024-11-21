@@ -31,7 +31,7 @@ To this end, the DBM and montan.dok are developing a series of software applicat
 These tools are designed to facilitate the identification of formal quality deficiencies in standardized data collections, enabling the generation of comprehensive error reports. 
 The initial focus is on `LIDO <https://lido-schema.org/>`_ and `EAD(DDB) <https://wiki.deutsche-digitale-bibliothek.de/pages/viewpage.action?pageId=19010180>`_, which serve as the common exchange formats for cataloguing data from archives and museums. 
 The tools are published as open source and under a free licence as a package in the 'Python Package Index' (PyPI) so that they can be easily reused and form the basis for further applications. 
-This should enable the quality criteria to be further developed in NFDI4Memory and other NFDI consortia to be directly translated into practicable applications and measures to improve data quality to be taken in memory and research institutions.
+This should enable the quality criteria to be further developed in NFDI4Memory and other NFDI consortia to be directly translated into practicable applications and measures to improve data quality in memory and research institutions.
 
 Community
 ---------
