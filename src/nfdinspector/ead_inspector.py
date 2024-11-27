@@ -97,6 +97,7 @@ class EADInspector(MetadataInspector):
                 "file": {"inspect": True, "ref": True},
                 "item": {"inspect": True, "ref": True},
                 "_": {"inspect": True, "ref": True},
+                "patterns": {"label": "", "ref": ""},
             },
             "materialspec": {
                 "collection": {"inspect": True},
@@ -129,6 +130,7 @@ class EADInspector(MetadataInspector):
                 "file": {"inspect": True, "ref": True, "min_num": 3},
                 "item": {"inspect": True, "ref": True, "min_num": 3},
                 "_": {"inspect": True, "ref": True, "min_num": 3},
+                "patterns": {"label": "", "ref": ""},
             },
             "userestrict": {
                 "collection": {"inspect": True, "ref": True},
@@ -679,10 +681,12 @@ class EADInspector(MetadataInspector):
             origination = origination.find("{*}name")
             if not self.has_text(origination):
                 return [self.error.empty_elem(origination.tag)]
+        config = self.configuration["origination"][level].copy()
+        config["patterns"] = self.configuration["origination"]["patterns"]
         return self.inspect_entity(
             self.text(origination),
             self.attr(origination, "authfilenumber"),
-            self.configuration["origination"][level],
+            config,
         )
 
     def inspect_originations(self, c, level: str) -> list | None:
@@ -796,10 +800,12 @@ class EADInspector(MetadataInspector):
         name_subject = indexentry.find("{*}*")
         if not self.has_text(name_subject):
             return [self.error.empty_elem(name_subject.tag)]
+        config = self.configuration["index"][level].copy()
+        config["patterns"] = self.configuration["index"]["patterns"]
         return self.inspect_entity(
             self.text(name_subject),
             self.attr(name_subject, "authfilenumber"),
-            self.configuration["index"][level],
+            config,
         )
 
     def inspect_index(self, c, level: str) -> list | None:

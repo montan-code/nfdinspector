@@ -933,6 +933,7 @@ class Test_EADInspector:
     def test_inspect_origination(self):
         ei = EADInspector()
         ei.configuration["origination"]["_"] = {"inspect": True, "ref": True}
+        ei.configuration["origination"]["patterns"] = {"label": "", "ref": ""}
         assert (
             ei.inspect_origination(
                 xml("<origination authfilenumber='1'>test</origination>"),
@@ -956,10 +957,54 @@ class Test_EADInspector:
             xml("<origination authfilenumber=''>test</origination>"),
             "_",
         )
+        ei.configuration["origination"]["patterns"] = {"label": "test", "ref": "1"}
+        assert (
+            ei.inspect_origination(
+                xml("<origination authfilenumber='1'>test</origination>"),
+                "_",
+            )
+            == []
+        )
+        assert ei.error.pattern("2") in (
+            ei.inspect_origination(
+                xml("<origination authfilenumber='2'>test</origination>"),
+                "_",
+            )
+        )
+        assert ei.error.pattern("tst") in (
+            ei.inspect_origination(
+                xml("<origination authfilenumber='2'>tst</origination>"),
+                "_",
+            )
+        )
+        ei.configuration["origination"]["patterns"] = {
+            "label": rf"^[^\d]*$",
+            "ref": r"^\d{6}$",
+        }
+        assert (
+            ei.inspect_origination(
+                xml("<origination authfilenumber='123456'>test</origination>"),
+                "_",
+            )
+            == []
+        )
+        assert ei.error.pattern("2") in (
+            ei.inspect_origination(
+                xml("<origination authfilenumber='2'>test</origination>"),
+                "_",
+            )
+        )
+        assert ei.error.pattern("111") in (
+            ei.inspect_origination(
+                xml("<origination authfilenumber='123456'>111</origination>"),
+                "_",
+            )
+        )
 
     def test_inspect_originations(self):
         ei = EADInspector()
         ei.configuration["origination"]["_"] = {"inspect": True, "ref": True}
+        ei.configuration["origination"]["patterns"] = {"label": "", "ref": ""}
         assert (
             ei.inspect_originations(
                 xml(
@@ -994,6 +1039,61 @@ class Test_EADInspector:
                 "<c><did><origination>test</origination><origination>test2</origination></did></c>"
             ),
             "_",
+        )
+        ei.configuration["origination"]["patterns"] = {"label": "test", "ref": "1"}
+        assert (
+            ei.inspect_originations(
+                xml(
+                    "<c><did><origination authfilenumber='1'>test</origination></did></c>"
+                ),
+                "_",
+            )
+            == None
+        )
+        assert ei.error.pattern("2") in (
+            ei.inspect_originations(
+                xml(
+                    "<c><did><origination authfilenumber='2'>test</origination></did></c>"
+                ),
+                "_",
+            )
+        )
+        assert ei.error.pattern("tst") in (
+            ei.inspect_originations(
+                xml(
+                    "<c><did><origination authfilenumber='1'>tst</origination></did></c>"
+                ),
+                "_",
+            )
+        )
+        ei.configuration["origination"]["patterns"] = {
+            "label": rf"^[^\d]*$",
+            "ref": r"^\d{6}$",
+        }
+        assert (
+            ei.inspect_originations(
+                xml(
+                    "<c><did><origination authfilenumber='123456'>test</origination></did></c>"
+                ),
+                "_",
+            )
+            == None
+        )
+        assert ei.error.pattern("2") in (
+            ei.inspect_originations(
+                xml(
+                    "<c><did><origination authfilenumber='2'>test</origination></did></c>"
+                ),
+                "_",
+            )
+        )
+        assert ei.error.pattern("111") in (
+            ei.inspect_originations(
+                xml(
+                    "<c><did><origination authfilenumber='123456'>111</origination></did></c>"
+                ),
+                "_",
+            )
         )
 
     def test_inspect_materialspec(self):
@@ -1105,6 +1205,7 @@ class Test_EADInspector:
     def test_inspect_indexentry(self):
         ei = EADInspector()
         ei.configuration["index"]["_"] = {"inspect": True, "ref": True, "min_num": 2}
+        ei.configuration["index"]["patterns"] = {"label": "", "ref": ""}
         assert (
             ei.inspect_indexentry(
                 xml(
@@ -1148,10 +1249,66 @@ class Test_EADInspector:
             xml("<indexentry><subject authfilenumber=''>test</subject></indexentry>"),
             "_",
         )
+        ei.configuration["index"]["patterns"] = {"label": "test", "ref": "1"}
+        assert (
+            ei.inspect_indexentry(
+                xml(
+                    "<indexentry><subject authfilenumber='1'>test</subject></indexentry>"
+                ),
+                "_",
+            )
+            == []
+        )
+        assert ei.error.pattern("2") in (
+            ei.inspect_indexentry(
+                xml(
+                    "<indexentry><subject authfilenumber='2'>test</subject></indexentry>"
+                ),
+                "_",
+            )
+        )
+        assert ei.error.pattern("tst") in (
+            ei.inspect_indexentry(
+                xml(
+                    "<indexentry><subject authfilenumber='1'>tst</subject></indexentry>"
+                ),
+                "_",
+            )
+        )
+        ei.configuration["index"]["patterns"] = {
+            "label": rf"^[^\d]*$",
+            "ref": r"^\d{6}$",
+        }
+        assert (
+            ei.inspect_indexentry(
+                xml(
+                    "<indexentry><subject authfilenumber='123456'>test</subject></indexentry>"
+                ),
+                "_",
+            )
+            == []
+        )
+        assert ei.error.pattern("2") in (
+            ei.inspect_indexentry(
+                xml(
+                    "<indexentry><subject authfilenumber='2'>test</subject></indexentry>"
+                ),
+                "_",
+            )
+        )
+        assert ei.error.pattern("111") in (
+            ei.inspect_indexentry(
+                xml(
+                    "<indexentry><subject authfilenumber='1'>111</subject></indexentry>"
+                ),
+                "_",
+            )
+        )
 
     def test_inspect_index(self):
         ei = EADInspector()
         ei.configuration["index"]["_"] = {"inspect": True, "ref": True, "min_num": 2}
+        ei.configuration["index"]["patterns"] = {"label": "", "ref": ""}
         assert (
             ei.inspect_index(
                 xml(
@@ -1208,6 +1365,62 @@ class Test_EADInspector:
                 "<c><index><indexentry><subject>test</subject></indexentry></index></c>"
             ),
             "_",
+        )
+        ei.configuration["index"]["_"] = {"inspect": True, "ref": True, "min_num": 1}
+        ei.configuration["index"]["patterns"] = {"label": "test", "ref": "1"}
+        assert (
+            ei.inspect_index(
+                xml(
+                    "<c><index><indexentry><subject authfilenumber='1'>test</subject></indexentry></index></c>"
+                ),
+                "_",
+            )
+            == None
+        )
+        assert ei.error.pattern("2") in (
+            ei.inspect_index(
+                xml(
+                    "<c><index><indexentry><subject authfilenumber='2'>test</subject></indexentry></index></c>"
+                ),
+                "_",
+            )
+        )
+        assert ei.error.pattern("tst") in (
+            ei.inspect_index(
+                xml(
+                    "<c><index><indexentry><subject authfilenumber='1'>tst</subject></indexentry></index></c>"
+                ),
+                "_",
+            )
+        )
+        ei.configuration["index"]["patterns"] = {
+            "label": rf"^[^\d]*$",
+            "ref": r"^\d{6}$",
+        }
+        assert (
+            ei.inspect_index(
+                xml(
+                    "<c><index><indexentry><subject authfilenumber='123456'>test</subject></indexentry></index></c>"
+                ),
+                "_",
+            )
+            == None
+        )
+        assert ei.error.pattern("2") in (
+            ei.inspect_index(
+                xml(
+                    "<c><index><indexentry><subject authfilenumber='2'>test</subject></indexentry></index></c>"
+                ),
+                "_",
+            )
+        )
+        assert ei.error.pattern("111") in (
+            ei.inspect_index(
+                xml(
+                    "<c><index><indexentry><subject authfilenumber='123456'>111</subject></indexentry></index></c>"
+                ),
+                "_",
+            )
         )
 
     def test_inspect_userestrict(self):

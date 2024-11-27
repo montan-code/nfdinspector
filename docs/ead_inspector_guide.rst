@@ -104,11 +104,11 @@ genreform                  inspect, normal
 dimensions                 inspect
 extent                     inspect
 scopecontent               inspect, min_word_num
-origination                inspect, ref
+origination                inspect, ref, patterns
 materialspec               inspect
 language                   inspect
 digital_archival_object    inspect
-index                      inspect, ref, min_num
+index                      inspect, ref, min_num, patterns
 userestrict                inspect, ref
 =========================  ===============================================================
 
