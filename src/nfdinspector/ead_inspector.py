@@ -191,7 +191,7 @@ class EADInspector(MetadataInspector):
         """
         Parse EAD-XML from a file and assign EAD components to the inspector.
 
-        :param file_path: File path to a XML file
+        :param file_path: File path to a EAD-XML file
         :type file_path: str
         """
         xml_root = MetadataInspector.read_xml_file(file_path)

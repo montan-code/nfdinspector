@@ -131,7 +131,7 @@ class LIDOInspector(MetadataInspector):
         """
         Parse LIDO-XML from a file and assign LIDO records to the inspector.
 
-        :param file_path: File path to a XML file
+        :param file_path: File path to a LIDO-XML file
         :type file_path: str
         """
         xml_root = MetadataInspector.read_xml_file(file_path)
@@ -141,7 +141,7 @@ class LIDOInspector(MetadataInspector):
         """
         Parse LIDO-XML from multiple files in a folder and assign LIDO records to the inspector.
 
-        :param file_path: File path to a XML file
+        :param files_path: Path to a folder with LIDO-XML files
         :type file_path: str
         """
         xml_roots: list = MetadataInspector.read_xml_files(files_path)
