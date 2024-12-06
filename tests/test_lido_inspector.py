@@ -263,7 +263,7 @@ class Test_LIDOInspector:
             == li.error.miss_info()
         )
         assert li.inspect_work_id(xml(f"{wrap[0]}{wrap[1]}")) == li.error.miss_info()
-        li.configuration["workID"]["pattern"] = r"^\d{12}$"
+        li.configuration["work_id"]["pattern"] = r"^\d{12}$"
         assert (
             li.inspect_work_id(xml(f"{wrap[0]}<workID>123456789000</workID>{wrap[1]}"))
             == "123456789000"

@@ -17,7 +17,7 @@ class LIDOInspector(MetadataInspector):
         self._lido_namespace: str = "http://www.lido-schema.org"
         self._lido_objects: list = []
         self._configuration: dict = {
-            "workID": {"pattern": ""},
+            "work_id": {"pattern": ""},
             "title": {
                 "inspect": True,
                 "unique": True,
@@ -293,8 +293,8 @@ class LIDOInspector(MetadataInspector):
         )
         if not self.text(work_id):
             return self.error.miss_info()
-        if self.configuration["workID"]["pattern"] and not re.fullmatch(
-            rf"{self.configuration['workID']['pattern']}", work_id.text
+        if self.configuration["work_id"]["pattern"] and not re.fullmatch(
+            rf"{self.configuration['work_id']['pattern']}", work_id.text
         ):
             return self.error.pattern(work_id.text)
         return work_id.text

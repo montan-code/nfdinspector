@@ -161,7 +161,7 @@ For example, you can specify a pattern for the "workID" field. In this case, the
 
     lido_inspector = LIDOInspector()
     lido_inspector.configure({
-        "workID": {
+        "work_id": {
             "pattern": "^\d{12}$",
         }
     })
