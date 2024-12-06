@@ -145,6 +145,37 @@ Examples::
         }
     })
 
+Patterns
+^^^^^^^^
+
+Since version 0.2 it is possible to specify patterns based on regular expressions for some fields.
+If they do not match, an error message is returned.
+
+For example, you can specify a pattern for the "unitid" field. In this case, the pattern must be a sequence of digits with a length of 12::
+    
+    from nfdinspector.ead_inspector import EADInspector
+
+    ead_inspector = EADInspector()
+    ead_inspector.configure({
+        "unitid": {
+            "pattern": "^\d{12}$",
+        }
+    })
+
+For fields that refer to concepts/entities, patterns can be specified for both the label and the reference. 
+In the following example, the label in the "origination" field must be "Bismarck, Otto von" and the reference must be "https://d-nb.info/gnd/11851136X"::
+    
+    from nfdinspector.ead_inspector import EADInspector
+
+    ead_inspector = EADInspector()
+    ead_inspector.configure({
+        "origination": {
+            "patterns": {
+                "label": "Bismarck, Otto von"
+                "ref": "https://d-nb.info/gnd/11851136X",
+            }
+        }
+    })
 
 Inspections
 -----------

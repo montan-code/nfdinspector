@@ -149,6 +149,37 @@ Examples::
         }
     })
 
+Patterns
+^^^^^^^^
+
+Since version 0.2 it is possible to specify patterns based on regular expressions for some fields.
+If they do not match, an error message is returned.
+
+For example, you can specify a pattern for the "workID" field. In this case, the pattern must be a sequence of digits with a length of 12::
+    
+    from nfdinspector.lido_inspector import LIDOInspector
+
+    lido_inspector = LIDOInspector()
+    lido_inspector.configure({
+        "workID": {
+            "pattern": "^\d{12}$",
+        }
+    })
+
+For fields that refer to concepts/entities, patterns can be specified for both the label and the reference. 
+In the following example, the label in the "category" field must be "Human-made object" and the reference must be "http://terminology.lido-schema.org/lido00096"::
+    
+    from nfdinspector.lido_inspector import LIDOInspector
+
+    lido_inspector = LIDOInspector()
+    lido_inspector.configure({
+        "category": {
+            "patterns": {
+                "label": "Human-made object"
+                "ref": "http://terminology.lido-schema.org/lido00096",
+            }
+        }
+    })
 
 Inspections
 -----------
