@@ -1,0 +1,898 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; NFDInspector 0.2.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=37f418d5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.2" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">NFDInspector 0.2.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="intro.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ead_inspector_guide.html">
+    EADInspector guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lido_inspector_guide.html">
+    LIDOInspector guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nfdinspector.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="intro.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="ead_inspector_guide.html">
+    EADInspector guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="lido_inspector_guide.html">
+    LIDOInspector guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="nfdinspector.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#X"><strong>X</strong></a>
+ 
+</div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.about">about() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.actor_id">actor_id() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector.attr">attr() (nfdinspector.metadata_inspector.MetadataInspector method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.concept_id">concept_id() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.config_file">config_file() (nfdinspector.ead_inspector.EADInspector method)</a>
+
+      <ul>
+        <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.config_file">(nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      </ul></li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.configuration">configuration (nfdinspector.ead_inspector.EADInspector property)</a>
+
+      <ul>
+        <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.configuration">(nfdinspector.lido_inspector.LIDOInspector property)</a>
+</li>
+      </ul></li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.configure">configure() (nfdinspector.ead_inspector.EADInspector method)</a>
+
+      <ul>
+        <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.configure">(nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.configure_level">configure_level() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.configure_setting">configure_setting() (nfdinspector.ead_inspector.EADInspector method)</a>
+
+      <ul>
+        <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.configure_setting">(nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      </ul></li>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector.create_element">create_element() (nfdinspector.metadata_inspector.MetadataInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.cs">cs (nfdinspector.ead_inspector.EADInspector property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector.date_object">date_object() (nfdinspector.metadata_inspector.MetadataInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector.date_range">date_range() (nfdinspector.metadata_inspector.MetadataInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.dist">dist() (nfdinspector.error.Error method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.dupl_blanks">dupl_blanks() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.dupl_text">dupl_text() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.duplicate_descriptions">duplicate_descriptions (nfdinspector.lido_inspector.LIDOInspector property)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.duplicate_titles">duplicate_titles (nfdinspector.lido_inspector.LIDOInspector property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.ead_namespace">ead_namespace (nfdinspector.ead_inspector.EADInspector property)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector">EADInspector (class in nfdinspector.ead_inspector)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.empty_elem">empty_elem() (nfdinspector.error.Error method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error">Error (class in nfdinspector.error)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector.error">error (nfdinspector.metadata_inspector.MetadataInspector property)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector.exists">exists() (nfdinspector.metadata_inspector.MetadataInspector method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.few">few() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.find_duplicate_descriptions">find_duplicate_descriptions() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.find_duplicate_titles">find_duplicate_titles() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.find_duplicates">find_duplicates() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.future">future() (nfdinspector.error.Error method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector.has_attribute">has_attribute() (nfdinspector.metadata_inspector.MetadataInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector.has_duplicate_blanks">has_duplicate_blanks() (nfdinspector.metadata_inspector.MetadataInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.has_material">has_material() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector.has_subelems">has_subelems() (nfdinspector.metadata_inspector.MetadataInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.has_tech">has_tech() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector.has_text">has_text() (nfdinspector.metadata_inspector.MetadataInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.has_valid_type">has_valid_type() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.inconsistent_date">inconsistent_date() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect">inspect() (nfdinspector.ead_inspector.EADInspector method)</a>
+
+      <ul>
+        <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect">(nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      </ul></li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_abstract">inspect_abstract() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_actor">inspect_actor() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_actors">inspect_actors() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_category">inspect_category() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_classifications">inspect_classifications() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_concept">inspect_concept() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_concepts">inspect_concepts() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_daogrp">inspect_daogrp() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_daos">inspect_daos() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_date">inspect_date() (nfdinspector.ead_inspector.EADInspector method)</a>
+
+      <ul>
+        <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_date">(nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      </ul></li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_dates">inspect_dates() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_dimensions">inspect_dimensions() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector.inspect_entity">inspect_entity() (nfdinspector.metadata_inspector.MetadataInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_event">inspect_event() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_event_type">inspect_event_type() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_events">inspect_events() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_extent">inspect_extent() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_genreform">inspect_genreform() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_id">inspect_id() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_index">inspect_index() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_indexentry">inspect_indexentry() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_language">inspect_language() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_lido_rec_id">inspect_lido_rec_id() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_materials_tech">inspect_materials_tech() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_materialspec">inspect_materialspec() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_measurements_set">inspect_measurements_set() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_object_description">inspect_object_description() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_object_measurements">inspect_object_measurements() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_object_work_types">inspect_object_work_types() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_origination">inspect_origination() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_originations">inspect_originations() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_place">inspect_place() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_places">inspect_places() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_record_info_set">inspect_record_info_set() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_record_rights">inspect_record_rights() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_record_source">inspect_record_source() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_record_sources">inspect_record_sources() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_record_type">inspect_record_type() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_repository_name">inspect_repository_name() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_resource_set">inspect_resource_set() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_resource_sets">inspect_resource_sets() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_scopecontent">inspect_scopecontent() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_sub_dating">inspect_sub_dating() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_subject_concepts">inspect_subject_concepts() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_text">inspect_text() (nfdinspector.ead_inspector.EADInspector method)</a>
+
+      <ul>
+        <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_text">(nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      </ul></li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_title">inspect_title() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_unitdates">inspect_unitdates() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_unitdates_consistency">inspect_unitdates_consistency() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_unitid">inspect_unitid() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_unittitle">inspect_unittitle() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.inspect_userestrict">inspect_userestrict() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.inspect_work_id">inspect_work_id() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector.inspections">inspections (nfdinspector.metadata_inspector.MetadataInspector property)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.is_consistent_date">is_consistent_date() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.is_consistent_earliest_date">is_consistent_earliest_date() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.is_consistent_latest_date">is_consistent_latest_date() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.is_distinct_from_type">is_distinct_from_type() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.is_future">is_future() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.is_uniq">is_uniq() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.language">language (nfdinspector.error.Error property)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.legal_body_id">legal_body_id() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.lido_namespace">lido_namespace (nfdinspector.lido_inspector.LIDOInspector property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.lido_objects">lido_objects (nfdinspector.lido_inspector.LIDOInspector property)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.lido_type">lido_type() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector">LIDOInspector (class in nfdinspector.lido_inspector)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.long">long() (nfdinspector.error.Error method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.meas_type">meas_type() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector">MetadataInspector (class in nfdinspector.metadata_inspector)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_actor">miss_actor() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_date">miss_date() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_earl_date">miss_earl_date() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_event_info">miss_event_info() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_event_type">miss_event_type() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_info">miss_info() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_label">miss_label() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_lang_code">miss_lang_code() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_lat_date">miss_lat_date() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_link">miss_link() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_mat">miss_mat() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_meas_type">miss_meas_type() (nfdinspector.error.Error method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_meas_unit">miss_meas_unit() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_meas_value">miss_meas_value() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_norm_date">miss_norm_date() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_norm_term">miss_norm_term() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_place">miss_place() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_ref">miss_ref() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_res_type">miss_res_type() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_rights">miss_rights() (nfdinspector.error.Error method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.miss_tech">miss_tech() (nfdinspector.error.Error method)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="nfdinspector.html#module-nfdinspector">nfdinspector</a>
+</li>
+        <li><a href="nfdinspector.html#module-nfdinspector.ead_inspector">nfdinspector.ead_inspector</a>
+</li>
+        <li><a href="nfdinspector.html#module-nfdinspector.error">nfdinspector.error</a>
+</li>
+        <li><a href="nfdinspector.html#module-nfdinspector.lido_inspector">nfdinspector.lido_inspector</a>
+</li>
+        <li><a href="nfdinspector.html#module-nfdinspector.metadata_inspector">nfdinspector.metadata_inspector</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    nfdinspector
+
+      <ul>
+        <li><a href="nfdinspector.html#module-nfdinspector">module</a>
+</li>
+      </ul></li>
+      <li>
+    nfdinspector.ead_inspector
+
+      <ul>
+        <li><a href="nfdinspector.html#module-nfdinspector.ead_inspector">module</a>
+</li>
+      </ul></li>
+      <li>
+    nfdinspector.error
+
+      <ul>
+        <li><a href="nfdinspector.html#module-nfdinspector.error">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    nfdinspector.lido_inspector
+
+      <ul>
+        <li><a href="nfdinspector.html#module-nfdinspector.lido_inspector">module</a>
+</li>
+      </ul></li>
+      <li>
+    nfdinspector.metadata_inspector
+
+      <ul>
+        <li><a href="nfdinspector.html#module-nfdinspector.metadata_inspector">module</a>
+</li>
+      </ul></li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.normal_date_range">normal_date_range() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.normalized_unitdates">normalized_unitdates() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.not_uniq">not_uniq() (nfdinspector.error.Error method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.pattern">pattern() (nfdinspector.error.Error method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.place_id">place_id() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector.rdf_namespace">rdf_namespace (nfdinspector.metadata_inspector.MetadataInspector property)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.read_ead">read_ead() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.read_ead_file">read_ead_file() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.read_lido">read_lido() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.read_lido_file">read_lido_file() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.read_lido_files">read_lido_files() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector.read_xml">read_xml() (nfdinspector.metadata_inspector.MetadataInspector static method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector.read_xml_file">read_xml_file() (nfdinspector.metadata_inspector.MetadataInspector static method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector.read_xml_files">read_xml_files() (nfdinspector.metadata_inspector.MetadataInspector static method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.rights_ead">rights_ead (nfdinspector.ead_inspector.EADInspector property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.error.Error.short">short() (nfdinspector.error.Error method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.ead_inspector.EADInspector.subordinate_unitdates">subordinate_unitdates() (nfdinspector.ead_inspector.EADInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.summarize_event_messages">summarize_event_messages() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.term">term() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector.text">text() (nfdinspector.metadata_inspector.MetadataInspector method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector.to_csv">to_csv() (nfdinspector.metadata_inspector.MetadataInspector method)</a>
+</li>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector.to_json">to_json() (nfdinspector.metadata_inspector.MetadataInspector method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.lido_inspector.LIDOInspector.value">value() (nfdinspector.lido_inspector.LIDOInspector method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="X">X</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="nfdinspector.html#nfdinspector.metadata_inspector.MetadataInspector.xlink_namespace">xlink_namespace (nfdinspector.metadata_inspector.MetadataInspector property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Andreas Ketelaer.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
