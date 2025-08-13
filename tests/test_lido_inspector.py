@@ -3324,6 +3324,32 @@ class Test_LIDOInspector:
                 )
             )
         )
+        li.configuration["repository_name"]["patterns"] = {
+            "label": rf"Testmuseum",
+            "ref": rf"^DE-MUS-\d+",
+        }
+        assert (
+            li.inspect_repository_name(
+                xml(
+                    f"{wrap[0]}<repositoryName><legalBodyID>DE-MUS-1234</legalBodyID><legalBodyName><appellationValue>Testmuseum</appellationValue></legalBodyName></repositoryName>{wrap[1]}"
+                )
+            )
+            == None
+        )
+        assert li.error.pattern("www.testmuseum.de") in (
+            li.inspect_repository_name(
+                xml(
+                    f"{wrap[0]}<repositoryName><legalBodyID>www.testmuseum.de</legalBodyID><legalBodyName><appellationValue>Testmuseum</appellationValue></legalBodyName></repositoryName>{wrap[1]}"
+                )
+            )
+        )
+        assert li.error.pattern("Test-Museum") in (
+            li.inspect_repository_name(
+                xml(
+                    f"{wrap[0]}<repositoryName><legalBodyID>DE-MUS-1234</legalBodyID><legalBodyName><appellationValue>Test-Museum</appellationValue></legalBodyName></repositoryName>{wrap[1]}"
+                )
+            )
+        )
 
     def test_inspect_record_source(self):
         li = LIDOInspector()

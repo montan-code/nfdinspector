@@ -64,7 +64,11 @@ class LIDOInspector(MetadataInspector):
                 "ref": True,
                 "patterns": {"label": "", "ref": ""},
             },
-            "repository_name": {"inspect": True, "ref": True},
+            "repository_name": {
+                "inspect": True,
+                "ref": True,
+                "patterns": {"label": "", "ref": ""},
+            },
             "record_source": {"inspect": True, "ref": True},
             "record_rights": {
                 "inspect": True,

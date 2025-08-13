@@ -111,7 +111,7 @@ event                 inspect, ref
 subject_concept       inspect, ref, min_num
 resource              inspect
 record_type           inspect, ref, patterns
-repository_name       inspect, ref
+repository_name       inspect, ref, patterns
 record_source         inspect, ref
 record_rights         inspect, ref, patterns
 record_info           inspect
